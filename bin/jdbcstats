@@ -1,0 +1,19 @@
+#!/bin/bash -e
+
+BASEDIR="$(dirname "$0")/.."
+VENV=~/.jdbclog/bin/activate
+
+if [[ -f $VENV ]]; then
+    echo "$@"
+    . $VENV &&\
+        which python &&\
+        python $BASEDIR/parser/main.py $@
+else
+    echo "
+    Python virtual environment not found in $VENV. 
+
+    If you have not done so, run 'make setup install' from this project home directory first.
+    "
+fi
+
+
