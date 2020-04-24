@@ -17,3 +17,4 @@ fmt:
 	@. ~/.jdbclog/bin/activate &&\
 		find . -name "*.py" -exec black {} \;
 
+all: setup install lint test
