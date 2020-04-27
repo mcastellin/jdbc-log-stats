@@ -17,5 +17,12 @@ pipeline {
                 sh 'make test'
             }
         }
+
+        stage('Integration testing') {
+            steps {
+                sh 'bin/jdbcstats --file jdbc.log.test --output ttable --rows 10'
+                sh 'bin/jdbcstats --file jdbc.log.test --output json --rows 5'
+            }
+        }
     }
 }
