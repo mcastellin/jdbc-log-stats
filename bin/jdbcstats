@@ -4,9 +4,7 @@ BASEDIR="$(dirname "$0")/.."
 VENV=~/.jdbclog/bin/activate
 
 if [[ -f $VENV ]]; then
-    echo "$@"
-    . $VENV &&\
-        which python &&\
+    . $VENV > /dev/null &&\
         python $BASEDIR/parser/main.py $@
 else
     echo "
