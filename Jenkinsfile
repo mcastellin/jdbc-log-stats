@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker { 
-            image 'python:3.7-stretch' 
-            args '--user root'
+            image 'jenkins-agent:python-3.7' 
+            args '--user jenkins'
         }
     }
     environment {
